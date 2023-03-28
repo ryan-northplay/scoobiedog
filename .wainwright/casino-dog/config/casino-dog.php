@@ -53,6 +53,17 @@
     ],
     
     'games' => [
+       'mascot' => [
+        'name' => 'Mascot Gaming',
+        'new_api_endpoint' => env('WAINWRIGHT_CASINODOG_DOMAIN', env('APP_URL')).'/api/games/mascot/',
+        'controller' => \Wainwright\CasinoDog\Controllers\Game\Mascot\MascotMain::class,
+        'extra_game_metadata' => 0,
+        'fake_iframe_url' => 1,
+        'demolink_retrieval_method' => 0, // customize the demo link retrieval used on datacontroller, if set to 1 you will need'demolink_retrieval_method () in your Main class
+        'custom_entry_path' => 0,
+        'launcher_behaviour' => 'internal_game', // 'internal_game' or 'redirect' - expecting url on 'redirect' on SessionsHandler::requestSession()
+        'active' => 0, //set to 0 to immediate cease all routes access
+      ],
       'bgaming' => [
         'name' => 'Bgaming',
         'new_api_endpoint' => env('WAINWRIGHT_CASINODOG_DOMAIN', env('APP_URL')).'/api/games/bgaming/',
@@ -64,6 +75,8 @@
         'launcher_behaviour' => 'internal_game', // 'internal_game' or 'redirect' - expecting url on 'redirect' on SessionsHandler::requestSession()
         'active' => 1, //set to 0 to immediate cease all routes access
       ],
+    ],
+    'archived_games' => [
       'wainwright' => [
         'name' => 'Wainwright',
         'new_api_endpoint' => env('WAINWRIGHT_CASINODOG_DOMAIN', env('APP_URL')).'/api/games/wainwright/',
@@ -86,17 +99,7 @@
         'launcher_behaviour' => 'internal_game', // 'internal_game' or 'redirect' - expecting url on 'redirect' on SessionsHandler::requestSession()
         'active' => 1, //set to 0 to immediate cease all routes access
       ],
-      'mascot' => [
-        'name' => 'Mascot Gaming',
-        'new_api_endpoint' => env('WAINWRIGHT_CASINODOG_DOMAIN', env('APP_URL')).'/api/games/mascot/',
-        'controller' => \Wainwright\CasinoDog\Controllers\Game\Mascot\MascotMain::class,
-        'extra_game_metadata' => 0,
-        'fake_iframe_url' => 1,
-        'demolink_retrieval_method' => 0, // customize the demo link retrieval used on datacontroller, if set to 1 you will need'demolink_retrieval_method () in your Main class
-        'custom_entry_path' => 0,
-        'launcher_behaviour' => 'internal_game', // 'internal_game' or 'redirect' - expecting url on 'redirect' on SessionsHandler::requestSession()
-        'active' => 0, //set to 0 to immediate cease all routes access
-      ],
+
       'isoftbet' => [
         'name' => 'iSoftbet',
         'new_api_endpoint' => env('WAINWRIGHT_CASINODOG_DOMAIN', env('APP_URL')).'/api/games/isoftbet/',
@@ -284,8 +287,5 @@
         'launcher_behaviour' => 'internal_game', // 'internal_game' or 'redirect' - expecting url on 'redirect' on SessionsHandler::requestSession()
         'active' => 1, //set to 0 to immediate cease all access on routes
       ],
-
     ],
-
-
     ];
